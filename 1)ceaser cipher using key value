@@ -1,0 +1,15 @@
+def caesar_encrypt(message, key):
+    encrypted_message = ""
+    for char in message:
+        if char.isalpha():
+            ascii_offset = ord('a') if char.islower() else ord('A')
+            encrypted_char = chr((ord(char) - ascii_offset + key) % 26 + ascii_offset)
+            encrypted_message += encrypted_char
+        else:
+            encrypted_message += char
+    return encrypted_message
+plaintext = "Hello, World!"
+encryption_key = 3
+ciphertext = caesar_encrypt(plaintext, encryption_key)
+print("Ciphertext:", ciphertext)
+
